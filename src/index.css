@@ -16,36 +16,41 @@
   height: 558px;
   width: 425px;
   border-radius: 30px;
-  background-color: #f1eded;
+  background-color: #767975;
   box-shadow: 20px 20px 60px #bebebe,
   -20px -20px 60px #ffffff;
 }
 
 .result {
   font-size: 2rem;
-  width: 405px;
+  width: 395px;
   height: 61px;
   scrollbar-width: none;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 10px;
   border-radius: 30px;
-  background: white;
+  background: rgb(198, 218, 195);
   box-shadow: 10px 10px 30px #bebebe,
-  -10px -10px 30px #ffffff;
+  -10px -10px 30px #858282;
 }
 
 .resbox {
   width: 390px;
   height: min-content;
   overflow-y: auto;
+  padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
   text-align: right;
 }
 
+.resbox::-webkit-scrollbar{
+  display: none;
+}
+
 .btns{
-  height: 475px;
+  height: 463px;
   width: 421px;
   display: flex;
   flex-flow: row wrap;
@@ -65,7 +70,11 @@
   border-radius: 30px;
   background-color: #f4f1f1;
   user-select: none;
-  box-shadow: 10px 10px 30px #bebebe,
-  -10px -10px 30px #ffffff;
+  cursor: pointer;
+  box-shadow: 10px 10px 30px #a5a2a2,
+  -10px -10px 30px #949191;
+}
 
+.calcBtns:hover {
+  background-color: rgb(224, 224, 224);
 }

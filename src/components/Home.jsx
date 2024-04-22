@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from './Button';
+import { evaluate } from 'mathjs';
 
 export const Home = () => {
 
@@ -7,25 +8,27 @@ export const Home = () => {
 
     const buttons = ["C","9","8","/","7","6","5","*","4","3","2","+","1","0",".","-","Del","="];
 
-    const findval = () => {
-        let result = Function('return ' + res)();
-        setRes(result.toString());
-    }
-
-    const handleButton = (arg) => {
+    const handleButton = (val) => {
+        
+        setRes(res + val)
+        
+        if (val === '=') {
+            setRes(evaluate(res))
+        }
+        if (val === 'C') {
+            setRes('');
+        }
         if (res === 'Infinity') {
             setRes('');
             return;
         }
-        if (arg === 'C') setRes('');
-        else if (arg === '=') findval();
-        else if (arg === 'Del') {
+        if (val === 'Del') {
             let n = res.length;
             if (n > 0)
-            setRes(res.slice(0, n-1));
+            setRes('')
+            setRes(res.slice(0, n-1))
         }
-        else setRes(res.concat(arg))
-    }
+    };
 
     return (
         <div className='home'>
@@ -33,10 +36,9 @@ export const Home = () => {
                 <div className='result'>
                     <div className='resbox'>{res}</div>
                 </div>
-
                 <div className='btns'>
                     {buttons.map((element, index) => { 
-                        return <Button value={element} key={index} handleButton={handleButton} />
+                        return <Button value={element} key={index} handleButton={handleButton}/>
                     })}
                 </div>
             </div>

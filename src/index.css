@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(214, 198, 198);
+}
+
 .home{
   height: 585px;
   width: 100vw;
